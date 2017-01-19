@@ -1,5 +1,8 @@
 # Tournament Results
-This project evaluates the result of a tournament. It stores the records of players in a PostgreSQL database.
+This project evaluates the result of a tournament. It stores the records of players in a PostgreSQL database. The database file `tournament.sql` can be ran at the Linux command prompt with:
+`psql -c '\i tournament.sql`
+Whatever commands are in `.sql` file will get run. To see whether all queries on the database are executing properly, you need to run `tournament_test.py`. It can be run on the Linux command line with:
+`python tournament_test.sql`
 
 ### List of modules
 - `tournament.py`: It contains functions for querying the database.

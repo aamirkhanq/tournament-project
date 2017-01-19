@@ -14,8 +14,6 @@ id serial primary key
 );
 
 create table matches(
-player_id1 serial references players(id),
-player_id2 serial references players(id),
 winner serial references players(id),
 loser serial references players(id)
 );
@@ -36,3 +34,9 @@ create view num_of_matches as
 select winners.id, winners.num_wins, (winners.num_wins+losers.num_losses) as num_matches
 from winners join losers
 on winners.id = losers.id;
+
+create view player_standings as
+select players.id, players.player, num_of_matches.num_wins, num_of_matches.num_matches 
+from players join num_of_matches 
+on players.id = num_of_matches.id 
+order by num_of_matches.num_wins;
